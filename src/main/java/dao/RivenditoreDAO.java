@@ -1,10 +1,14 @@
 package dao;
 
+import entity.ticket.rivenditore.DistributoreAutomatico;
 import entity.ticket.rivenditore.Rivenditore;
+import entity.ticket.rivenditore.RivenditoreAutorizzato;
 import entity.utente.Utente;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+import java.util.HashMap;
 import java.util.List;
 
 public class RivenditoreDAO {
@@ -34,6 +38,20 @@ public class RivenditoreDAO {
 
     public List<Rivenditore> findAll() {
         return em.createQuery("SELECT r FROM Rivenditore r", Rivenditore.class).getResultList();
+    }
+
+    public HashMap<String, Integer> findNumTicketFromRivenditore() {
+        HashMap<String, Integer> numTicketRivenditore = new HashMap<>();
+        em.createQuery("SELECT r FROM Rivenditore r", Rivenditore.class)
+                .getResultList()
+                .forEach(rivenditore -> {
+                    if (rivenditore instanceof RivenditoreAutorizzato) {
+                        numTicketRivenditore.put(((RivenditoreAutorizzato) rivenditore).getNomeRivenditore()+" n°"+rivenditore.getId(), rivenditore.getTickets().size());
+                    } else if (rivenditore instanceof DistributoreAutomatico) {
+                        numTicketRivenditore.put("Distributore Automatico n°"+rivenditore.getId(), rivenditore.getTickets().size());
+                    }
+                });
+        return numTicketRivenditore;
     }
 
     public void delete(Rivenditore rivenditore) {
