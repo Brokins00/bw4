@@ -1,7 +1,6 @@
-import dao.RivenditoreDAO;
-import dao.TesseraDAO;
-import dao.TicketDAO;
-import dao.UtenteDAO;
+import dao.*;
+import entity.mezzo.Mezzo;
+import entity.mezzo.StatoMezzo;
 import entity.ticket.Abbonamento;
 import entity.ticket.Biglietto;
 import entity.ticket.rivenditore.Rivenditore;
@@ -9,11 +8,15 @@ import entity.ticket.rivenditore.RivenditoreAutorizzato;
 import entity.utente.Tessera;
 import enums.Autorizzazione;
 import enums.TipoAbbonamento;
+import enums.TipoMezzo;
+import enums.TipoStatoMezzo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashMap;
 
 public class Main {
@@ -25,6 +28,8 @@ public class Main {
         TesseraDAO tesseraDAO = new TesseraDAO(em);
         RivenditoreDAO rivenditoreDAO = new RivenditoreDAO(em);
         TicketDAO ticketDAO = new TicketDAO(em);
+        StatoDAO statoDAO = new StatoDAO(em);
+        MezzoDAO mezzoDAO = new MezzoDAO(em);
 //
 //        Utente u1 = new Utente();
 //        u1.setNome("Stefano");
@@ -139,5 +144,39 @@ public class Main {
         // Conteggio biglietti per Rivenditore
 //        HashMap<String, Integer> numTicketFromRivenditore = rivenditoreDAO.findNumTicketFromRivenditore();
 //        System.out.println(numTicketFromRivenditore);
+
+        // Validità abbonamento in base a biglietto, tessera e utente
+//        Boolean isValid1 = ticketDAO.isValid(ticketDAO.getById(22), utenteDAO.getById(3));
+//        System.out.println("L'abbonamento con id 22 è di Stefano? "+isValid1);
+//        Boolean isValid2 = ticketDAO.isValid(ticketDAO.getById(22), utenteDAO.getById(4));
+//        System.out.println("L'abbonamento con id 22 è di Leonardo? "+isValid2);
+
+        // Creazione mezzo
+//        Mezzo m1 = new Mezzo();
+//        m1.setTipoMezzo(TipoMezzo.TRAM);
+//        m1.setCapienza(150);
+//        mezzoDAO.save(m1);
+//
+//        StatoMezzo sm1 = new StatoMezzo();
+//        sm1.setTipo(TipoStatoMezzo.MANUTENZIONE);
+//        sm1.setInizio(LocalDateTime.of(2024, 5, 1, 13, 5));
+//        sm1.setFine(LocalDateTime.of(2024, 5, 3, 9, 0));
+//        sm1.setMezzo(m1);
+//        statoDAO.save(sm1);
+//
+//        StatoMezzo sm2 = new StatoMezzo();
+//        sm2.setTipo(TipoStatoMezzo.SERVIZIO);
+//        sm2.setInizio(LocalDateTime.of(2024, 5, 3, 9, 1));
+//        sm2.setMezzo(m1);
+//        statoDAO.save(sm2);
+//
+//        Biglietto findb1 = (Biglietto) ticketDAO.getById(23);
+//        System.out.println(findb1);
+//        try {
+//            findb1.setVidimazione(LocalDateTime.now(), m1);
+//        } catch (Exception e) {
+//            System.err.println(e.getMessage());
+//        }
+//        ticketDAO.update(findb1);
     }
 }

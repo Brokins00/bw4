@@ -1,5 +1,6 @@
 package entity.ticket;
 
+import entity.mezzo.Mezzo;
 import entity.ticket.rivenditore.Rivenditore;
 import enums.TipoAbbonamento;
 

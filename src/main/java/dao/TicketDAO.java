@@ -1,5 +1,6 @@
 package dao;
 
+import entity.ticket.Abbonamento;
 import entity.ticket.Ticket;
 import entity.ticket.rivenditore.Rivenditore;
 import entity.utente.Utente;
@@ -64,5 +65,13 @@ public class TicketDAO {
         et.begin();
         em.remove(ticket);
         et.commit();
+    }
+
+    public Boolean isValid(Ticket ticket, Utente utente) {
+        return ((Abbonamento) ticket)
+                .getTessera()
+                .getUtente()
+                .getId()
+                .equals(utente.getId());
     }
 }

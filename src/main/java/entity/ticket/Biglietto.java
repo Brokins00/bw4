@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 public class Biglietto extends Ticket {
     private LocalDateTime vidimazione;
     private LocalDateTime scadenza;
-//    @ManyToOne
-//    @JoinColumn(name="mezzo_id")
-//    private Mezzo mezzo;
+    @ManyToOne
+    @JoinColumn(name = "mezzo_id")
+    private Mezzo mezzo;
 
 
     public Biglietto() {
@@ -29,8 +29,23 @@ public class Biglietto extends Ticket {
         return scadenza;
     }
 
-    public void setVidimazione(LocalDateTime vidimazione) {
-        this.vidimazione = vidimazione;
-        this.scadenza = vidimazione.plusMinutes(90); //Biglietto da 90 minuti
+    public void setVidimazione(LocalDateTime vidimazione, Mezzo mezzo) throws Exception {
+        if (this.mezzo == null) {
+            this.mezzo = mezzo;
+            this.vidimazione = vidimazione;
+            this.scadenza = vidimazione.plusMinutes(90); //Biglietto da 90 minuti
+        } else {
+            throw new Exception("Questo biglietto è stato già vidimato");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Biglietto{" +
+                "dataEmissione=" + dataEmissione +
+                ", mezzo=" + mezzo +
+                ", scadenza=" + scadenza +
+                ", vidimazione=" + vidimazione +
+                '}';
     }
 }
