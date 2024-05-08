@@ -1,7 +1,5 @@
 package entity.tratta;
 
-import entity.ticket.Biglietto;
-
 import javax.persistence.*;
 import java.time.Duration;
 import java.util.List;
@@ -19,13 +17,26 @@ public class Tratta {
     @Column(name = "percorrenza_media")
     private Duration percorrenzaMedia;
     @OneToMany(mappedBy = "tratta")
-    private List<Viaggio> tratte;
+    private List<Viaggio> viaggi;
 
-
+    public Tratta(String luogoPartenza, String luogoArrivo, Duration percorrenzaMedia) {
+        this.luogoPartenza = luogoPartenza;
+        this.luogoArrivo = luogoArrivo;
+        this.percorrenzaMedia = percorrenzaMedia;
+    }
 
     public Tratta() {
 
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public List<Viaggio> getViaggi() {
+        return viaggi;
+    }
+
     public String getLuogoPartenza() {
 
         return luogoPartenza;
@@ -55,8 +66,8 @@ public class Tratta {
     public String toString() {
         return "Tratta{" +
                 "id=" + id +
-                ", luogoPartenza='" + luogoPartenza + '\'' +
-                ", luogoArrivo='" + luogoArrivo + '\'' +
+                ", luogoPartenza='" + luogoPartenza + "'" +
+                ", luogoArrivo='" + luogoArrivo + "'" +
                 ", percorrenzaMedia=" + percorrenzaMedia +
                 '}';
     }
