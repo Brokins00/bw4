@@ -1,7 +1,6 @@
 package dao;
 
 import entity.mezzo.Mezzo;
-import entity.utente.Utente;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

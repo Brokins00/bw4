@@ -3,11 +3,9 @@ package dao;
 import entity.ticket.rivenditore.DistributoreAutomatico;
 import entity.ticket.rivenditore.Rivenditore;
 import entity.ticket.rivenditore.RivenditoreAutorizzato;
-import entity.utente.Utente;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 import java.util.HashMap;
 import java.util.List;
 

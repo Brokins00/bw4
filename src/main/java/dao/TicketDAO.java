@@ -2,13 +2,11 @@ package dao;
 
 import entity.ticket.Abbonamento;
 import entity.ticket.Ticket;
-import entity.ticket.rivenditore.Rivenditore;
 import entity.utente.Utente;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
 
 public class TicketDAO {

@@ -1,6 +1,5 @@
 package dao;
 
-import entity.mezzo.Mezzo;
 import entity.mezzo.StatoMezzo;
 
 import javax.persistence.EntityManager;

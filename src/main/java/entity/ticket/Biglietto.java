@@ -29,6 +29,10 @@ public class Biglietto extends Ticket {
         return scadenza;
     }
 
+    public Mezzo getMezzo() {
+        return mezzo;
+    }
+
     public void setVidimazione(LocalDateTime vidimazione, Mezzo mezzo) throws Exception {
         if (this.mezzo == null) {
             this.mezzo = mezzo;

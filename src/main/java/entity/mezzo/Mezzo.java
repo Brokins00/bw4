@@ -62,4 +62,15 @@ public class Mezzo {
     public void setTipoMezzo(TipoMezzo tipoMezzo) {
         this.tipoMezzo = tipoMezzo;
     }
+
+    @Override
+    public String toString() {
+        return "Mezzo{" +
+                "id=" + id +
+                ", capienza=" + capienza +
+                ", bigliettiVidimati=" + bigliettiVidimati +
+                ", tipoMezzo=" + tipoMezzo +
+                ", statiMezzo=" + statiMezzo +
+                '}';
+    }
 }
