@@ -186,8 +186,8 @@ public class Main {
 //        ticketDAO.update(findb1);
 
         // Biglietti vidimati da un mezzo
-        Mezzo findm2 = mezzoDAO.getById(37);
-        System.out.println("Biglietti vidimati su mezzo 37: "+findm2.getBigliettiVidimati().size());
+        Mezzo findm2 = mezzoDAO.getById(40);
+        System.out.println("Biglietti vidimati su mezzo 40: "+findm2.getBigliettiVidimati().size());
 
         // Biglietti vidimati in un periodo di tempo
         System.out.println("Biglietti vidimati in un periodo: "+ticketDAO.findTicketVidimatiFromPeriod(LocalDate.of(2023, 12, 25), LocalDate.now()));
